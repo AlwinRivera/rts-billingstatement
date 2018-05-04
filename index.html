@@ -2,6 +2,8 @@
 <html>
 <head>
 <title>Billing Statement | RTS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -17,73 +19,134 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
 </script>
 </head>
-<body class="container">
+<body>
 <div ng-app="app">
-<div class="form-group">
+<div class="container">
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="payment">Payment:</label>
 <input type="text" class="form-control" id="payment" ng-model="payment" placeholder="Ex. 50% or Full">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="material">Material:</label>
 <input type="text" class="form-control" id="material" ng-model="material" placeholder="Ex. Corngrains">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="from">From:</label>
 <input type="text" class="form-control" id="from" ng-model="from" placeholder="Ex. GMC Private Pier, Makar Port, General Santos">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="to">To:</label>
 <input type="text" class="form-control" id="to" ng-model="to" placeholder="Ex. Tapal Port, Ubay, Bohol">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="vessel">Vessel:</label>
 <input type="text" class="form-control" id="vessel" ng-model="vessel" placeholder="Ex. M/V Jasmine 3,500 DWT ">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="metricTons">Metric Tons:</label>
 <input type="number" class="form-control" id="metricTons" ng-model="metricTons" placeholder="Ex. 2,044.500 ">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="pricePerTon">Price of material per Ton</label>
 <input type="number" class="form-control" id="pricePerTon" ng-model="pricePerTon" placeholder="Ex. 900.00  ">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="date">Date:</label>
 <input type="text" class="form-control" id="date" ng-model="date" placeholder="March 4,2018 ">
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="form-group col-sm-12">
 <label for="downPayment">Downpayment:</label>
 <input type="number" class="form-control" id="downPayment" ng-model="downPayment" placeholder="P 900,000.00 ">
 </div>
+</div>
+</div>
 <!--Start of Paragraph-->
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12">
 <h1>
  We are Billing you Hereunder {{payment}}
  Payment of Freight Charges for your Latest Shipment of {{material}}
  in Bulk shipped from {{from}} to {{to}}
  onboard our cargo vessel {{vessel}}
  (self-propelled), to wit:
-<br><br>
+ </h1>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-12">
+<h1>
  Freight charges due on shipment of {{metricTons | currency : "" : 2}} Metric Tons "{{material}}"
 <br>
  in bulk at {{pricePerTon | currency : "Php " : 2}} per Ton………………………<span class="pull-right">{{metricTons * pricePerTon | currency : "Php " : 2}}</span>
-<br><br>
+ </h1>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-12">
+<h1>
  Less: Partial Downpayment Dated {{date}} <span class="pull-right">({{downPayment | currency : "Php   " : 2}})</span>
-<br><br>
+ </h1>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-12">
+<h1>
  TOTAL AMOUNT OF FREIGHT CHARGES DUE US <span class="pull-right">{{(metricTons * pricePerTon)-downPayment | currency : "Php   " : 2}}<br></span>
+ </h1>
+<div class="clear-fix"></div>
+<<h1>
 <span class="pull-right">vvvvvvvvvvvvvvvv</span>
-<br><br>
- <p class="text-center">PESOS: <u>{{(metricTons * pricePerTon)-downPayment | words | uppercase}} ONLY</u></p>
 </h1>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-12">
+ <h1 class="text-center">PESOS: <u>{{(metricTons * pricePerTon)-downPayment | words | uppercase}} ONLY</u></h1>
+</h1>
+</div>
+</div>
 <hr>
 <!--Email communication-->
-<h2><small>Email communication</small>
+<div class="row">
+<div class="col-sm-12">
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-sm-12">
+<h2>
+<small>Email communication</small>
 <br>
 Please find attached herewith {{payment}} Billing Statement of  "{{vessel}}" for your shipment of {{material}} in bulk shipped from {{from}} Portside loading to {{to}} for your perusal and Processing of Payments.
-<br><br>
+<br>
 Thanks
 </h2>
 </div>
-
+</div>
+</div>
+</div>
 <script>
 var app = angular.module('app',[]);
 
