@@ -115,7 +115,7 @@
  TOTAL AMOUNT OF FREIGHT CHARGES DUE US <span class="pull-right">{{(metricTons * pricePerTon)-downPayment | currency : "Php   " : 2}}<br></span>
  </h1>
 <div class="clear-fix"></div>
-<<h1>
+<h1>
 <span class="pull-right">vvvvvvvvvvvvvvvv</span>
 </h1>
 </div>
@@ -131,6 +131,7 @@
 <!--Email communication-->
 <div class="row">
 <div class="col-sm-12">
+<h2><b>{{payment | regexReplace: 'Full':'Final'}} Billing Statement Of {{vessel}}, {{from}} to {{to}}</b></h2>
 </div>
 </div>
 <br>
@@ -164,8 +165,14 @@ app.filter('words', function() {
   };
 
 });
+app.filter("regexReplace", function() { 
+  // filter arguments
+  return function(input, searchRegex, replaceRegex) { 
+    // implementation, add the 'g' for global, o/w only first digit is replaced.
+    return input.replace(RegExp(searchRegex,'g'), replaceRegex); 
 
-
+  };
+});
 var th = ['','thousand','million', 'billion','trillion'];
 var dg = ['zero','one','two','three','four', 'five','six','seven','eight','nine']; 
 var tn = ['ten','eleven','twelve','thirteen', 'fourteen','fifteen','sixteen', 'seventeen','eighteen','nineteen'];
